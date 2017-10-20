@@ -1,1 +1,0 @@
-if agents adapt, does the adaptation consider past states in the form of learning?

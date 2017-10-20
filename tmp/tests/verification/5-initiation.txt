@@ -1,1 +1,0 @@
-initial states? which are constant, which are varying?

@@ -1,0 +1,1 @@
+are agent behavior influenced by expectations on future model states? if yes, how?

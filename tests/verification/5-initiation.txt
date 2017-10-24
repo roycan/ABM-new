@@ -1,1 +1,16 @@
 initial states? which are constant, which are varying?
+
+The initial state of the world at time t = 0 is a certain number of bacteria
+are generated and randomly placed on the map. Each patch also has a certain
+level of antibiotics, with the most in the middle and decreasing to none at the edges.
+
+The number of bacteria is ddetermined by a slider. All bacteria initially 
+started with a set lifespan and no resistances at all to any kind of
+bacteria. As a result of this the initialization tends to be similar with
+the major difference being the placement of the bacteria. Most of these
+are chosen arbitrarily except for the antibiotics which is based off
+an experiment, "The Evolution of Bacteria on a “Mega-Plate” Petri Dish (Kishony Lab)"
+with a similar setup. 
+
+A youtube vide of the experiment can be found here.
+https://www.youtube.com/watch?v=plVk4NVIUh8

@@ -1,3 +1,12 @@
-what are the basic principles of the model?
-will the model provide insights on these principles?
-does the model use new/ pre-developed theory for agent traits from which the system dynamics emerge?
+As ransomware is relatively new type of malware, this model uses predeveloped theories of spread of malwares on a network. However,  
+there are some traits which are unique to ransomware so this model also uses details or theories concerning ransomware.
+
+The model will provide a basic insight on the following principles:
+
+(1) The basic principle of the model is that ransomware/malware from a computer can spread on other computers linked to
+it. To this date, most operating systems that are largely affected by ransomware are those with Windows operating
+system, however, Linux and MacOS may also be infected if files from Windows are stored there. There is also a greater
+spread of ransomware when a computer is used on an administrative level and can infect.
+ 
+(2) Another basic principle is that computers/files affected by ransomware could be recovered through paying or a patch.
+The computer can become resistant to ransomware through securing and protecting the machine.

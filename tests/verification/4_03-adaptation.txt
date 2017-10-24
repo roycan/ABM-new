@@ -1,1 +1,2 @@
-what, if any, rules vary decision making for agents in response to changes in themselves, others or the environment?
+The rules that vary decision making for agents in response to change in themselves is the time it takes to scan whether they are infected by
+ransomware/malware.

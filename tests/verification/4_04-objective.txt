@@ -1,1 +1,2 @@
-if entities adapt, to what objective/ goal? 
+The objective of a computer in adapting is to recover from being infected by ransomware/malware or to gain
+resistance from ransomware/malware.

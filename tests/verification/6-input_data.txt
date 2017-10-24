@@ -1,1 +1,1 @@
-any external data/ files/ models needed?
+There are not external data used in this model.

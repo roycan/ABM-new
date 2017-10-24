@@ -1,1 +1,1 @@
-if agents adapt, does the adaptation consider past states in the form of learning?
+The adaptation does not consider past states as a form of learning.

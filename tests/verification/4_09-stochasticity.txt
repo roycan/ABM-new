@@ -1,1 +1,3 @@
-what processes are modelled as random?
+The processes that were modeled by assuming they are random or partly random is the ransomware/malware scan.
+In this process, the computer checks if it is infected by ransomware/malware. It could gain resistance from it
+or becomes susceptible again according to chance.

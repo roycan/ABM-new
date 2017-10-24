@@ -1,1 +1,1 @@
-any agent groupings?
+The collectives or agents are grouped and represented as a network.

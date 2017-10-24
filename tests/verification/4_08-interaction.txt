@@ -1,0 +1,3 @@
+There are direct interactions from agents that are linked together and as they are in a network, it is assumed
+that they, in some way, all interact with each other. An infected computer directly influences the computer linked
+to it.

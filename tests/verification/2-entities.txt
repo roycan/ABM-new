@@ -1,3 +1,22 @@
 What are the entities, what their state variables (attributes) ?
+* Silver Nanoparticles
+  - Color
+      Blue
+  - Oxygen Level
+      This is for the oxidation process for the Silver Nanoparticles to release silver ions.
+
+* Silver Ions
+  - Color
+      White
+  - Health Points
+      This determines if the bacteria has succesfully eaten the specific ion if the health points is depleted to 0.
+
+* Bacteria Bodies (E. Coli)
+  - Color
+      Red for Normal Bacteria. Green for Zombie Bacteria
+  - Size Level
+      Bacteria will grow if they succesfully eat silver ions, this will be contained within levels 1-3 as bacteria only have a limited size that they mature to.
+  - Health Points
+      This determines if the bacteria has already been turned to a "Zombie" if the health points is depleted to 0. A bacteria agent can only attack one silver ion at a time but any bacteria agent can be attacked by several silver ions.
 
 What are the scales used (ie temporal resolution, spatial resolution and bounds)?

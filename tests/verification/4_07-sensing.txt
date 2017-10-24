@@ -1,1 +1,2 @@
 what model state variables are informing agents' decisions?
+Silver nanoparticles are basically immobile they are just scattered around the environment but silver ions are able to move and sense bacteria agents using a greedy approach. This could be a point of improvement for the version 2 of this model but we decided to stick with a manhattan distance type of appraoch as this is more intuitive and there is still a lack of research behind this.

@@ -1,1 +1,2 @@
 initial states? which are constant, which are varying?
+Initial state is that all bacteria agents and the silver nanoparticles are all randomly placed on the environment when the model is started. The number of bacteria and silver nanoparticles will depend on global variable sliders and all agent sets have constant colors except the bacteria which when influenced by silver ions will turn into green which means that they are already zombies and will proceed to attack other bacterias and act as silver ions.

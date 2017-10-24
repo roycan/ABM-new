@@ -1,1 +1,3 @@
 any external data/ files/ models needed?
+  population
+  relative tendency to believe

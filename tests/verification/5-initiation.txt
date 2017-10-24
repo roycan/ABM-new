@@ -1,1 +1,7 @@
 initial states? which are constant, which are varying?
+  initially, neutral lang lahat
+  tapos bibigyan sila ng set of friends
+  then isa sa kanila magiging fake news spreader
+  then bibigyan ng bias (random) yung mga neutrals either towards or against the fake news
+  then neutrals will turn to believers or strongholds or stay neutral
+  decision based on how many of their friends believe or condemn the news and their initial bias

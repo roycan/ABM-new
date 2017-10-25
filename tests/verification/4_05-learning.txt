@@ -1,1 +1,6 @@
 if agents adapt, does the adaptation consider past states in the form of learning?
+
+Individual agents do not change over time. However, like in nature, the offspring
+of the bacteria may be more fit for the environment and may have more success.
+As a result of this, the individual does not change, but the population as a whole
+adapts to the environment through mutation and natural selection.

@@ -1,1 +1,1 @@
-fill in the ODD descriptions that corresponds to the specifications for the ABM model
+These are subject to changes as model specs become clearer through continuous development.

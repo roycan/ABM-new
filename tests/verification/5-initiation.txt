@@ -1,1 +1,5 @@
-initial states? which are constant, which are varying?
+The initial state of a computer is either infected or not infected. The total number of computers can be increased 
+or decreased and the number of computers infected varies according to the input of the user of the model.
+
+Other varying states of the model are chance of infected computer to affect other links, chance of recovery and chance
+of resistance. The time to 'scan' a computer to check whether it has malware or not can also be varied.

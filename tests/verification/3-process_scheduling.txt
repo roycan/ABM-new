@@ -1,1 +1,38 @@
-Who did what and in what order?  Use pseudo-code.
+The following are the processes used in the model:
+(1) Set up
+	Set up computer
+	Link computers
+	Set  computers that are initially infected randomly
+
+(2) Set up computers
+	Set location of computers in the environment
+	Set status
+	Set operating system
+	Set control to computer
+
+(3) Link computers
+	Link computers according to type of network	
+
+(4) Go
+	While all computers not infected:
+		Spread malware
+		Check status (infected or recover)
+
+(5) Spread malware
+	If linked computer is not resistant:
+		If malware spread chance is greater than some value:
+			Computer is infected
+
+(6) Check status
+	If infected:
+		If recovery chance is greater than some value:
+			If resistance chance is greater than some value:
+				Computer becomes resistant
+			Else:
+				Computer can be infected again
+		Else:
+			Computer is still infected
+
+Time is modeled in a continuous processes. The variables are updated asynchronously, meaning the entities may 
+change the value of their state variables not simultaneously or as the process is calculated and not waiting for
+other entities.

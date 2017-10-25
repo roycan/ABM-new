@@ -1,1 +1,2 @@
-what model state variables are informing agents' decisions?
+The state variables that informs an infected agent's decision is the status (infected or not) of agents linked to it. However,
+the structure of the network is imposed by the set up and the agents are assumed to know these variables.

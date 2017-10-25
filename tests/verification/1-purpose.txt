@@ -1,0 +1,4 @@
+The purpose and objectives of the model are:
+(1) To show how ransomware/malware spread on different networks of computers,
+(2) To describe how different networks of computers adapt to attacks of ransomware/malware,
+(3) To illustrate how securing the network aid in controlling the spread of ransomware or malware over the network.

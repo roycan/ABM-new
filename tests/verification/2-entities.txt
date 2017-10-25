@@ -1,3 +1,8 @@
-What are the entities, what their state variables (attributes) ?
+The following are the entities used in the model:
+(1) Computer / node. The state variables of this entity are operating system,manner by which it is used as a regular user or an administrator,
+its status whether it is infected by the ransomware/malware or not, either resists it or still susceptible. Other state variables that are constant 
+throughout, unless modified, are malware spread chance, recovery chance and gain resistance chance.
+The environment of this model is there is/are already initial affected computer/s by malware and the computers are linked as a network.
 
-What are the scales used (ie temporal resolution, spatial resolution and bounds)?
+In this model, one tick represents a time period wherein an affected computer can check whether it really is infected or not and can change its status
+based on this. A tick also represents a time period wherein already verified, infected computer can attack other computers that are linked to it.

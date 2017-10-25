@@ -1,1 +1,3 @@
 are agent behavior influenced by expectations on future model states? if yes, how?
+
+The bacteria cannot predict the future model states.

@@ -1,13 +1,12 @@
-What are the entities, what their state variables (attributes) ?
-
-What are the scales used (ie temporal resolution, spatial resolution and bounds)?
-
 The entities in this model are
 
 1. The bacteria
-
-The bacteria are agents with 4 state variables. It has a lifespan attribute to represent how many ticks will the bacteria live. When this reaches 0, the bacteria will die to represent the ageing process. Each bacteria has a resistance attribute for each antibiotic. This represents the chance that a bacteria will survive the antibiotics
+The bacteria are agents with 4 state variables each. 
+- lifespan attribute: represents how many ticks will the bacteria live. 
+When this reaches 0, the bacteria will die, represent the ageing process
+- resistance attribute: this represents the bacteria’s chance of surviving 
+when exposed to antibiotics (patches)
 
 2. The antibiotics
-
-The antibiotics are represented by patches. Each patch can have a kind of antibiotic and the amount of antibiotics in it which will affect it's effectiveness in killing off bacteria
+The antibiotics are represented by patches. Each patch can have a kind of antibiotic
+and the amount of antibiotics in it which will affect it's effectiveness in killing off bacteria

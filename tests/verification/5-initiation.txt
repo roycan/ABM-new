@@ -1,1 +1,35 @@
-initial states? which are constant, which are varying?
+INITIAL STATES
+
+init-x: 10 + min-pxcor
+init-y: 0
+
+egg-x: max-pxcor - 20
+egg-y: 0
+
+Patch at init-x init-y:
+    sprout 1:
+        color: brown
+        shape: circle
+        size: 10
+
+Patch at egg-x egg-y:
+    sprout 1:
+        color: red
+        shape: circle
+        size: 30
+
+Sperm cells
+    Location: (10 + min-pxcor, 0)
+    Color: White
+    Shape: Default
+    Heading: random float 360
+    Forward: random 5
+    Size: 2
+
+Egg cells
+    Location: (max-pxcor - 10, 0)
+    Color: White
+    Shape: Dot
+    Heading: random float 360
+    Forward: 10 - random 5
+    Size: 10

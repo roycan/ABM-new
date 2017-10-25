@@ -1,1 +1,5 @@
 Who did what and in what order?  Use pseudo-code.
+Each turtle will move one position each tick.
+
+for turtle in turtles:
+	turtle.moveRand()

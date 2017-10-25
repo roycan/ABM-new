@@ -1,1 +1,1 @@
-what results are expected to vary in complex or unpredictable ways?
+We expect to see how the percentage of vaccinated humans affects how non-vaccinated humans get infected.

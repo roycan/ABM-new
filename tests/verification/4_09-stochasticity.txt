@@ -1,1 +1,3 @@
-what processes are modelled as random?
+The movement of the agents are randomly generated through a common wiggle walk.
+
+The amount of initially infected and initially vaccinated agents is generated from a random number, with a ceiling defined by the user.

@@ -1,1 +1,3 @@
-Who did what and in what order?  Use pseudo-code.
+For all turtles:
+    Wiggle walk
+    Infect neighbour

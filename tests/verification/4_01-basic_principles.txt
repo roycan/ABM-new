@@ -3,8 +3,18 @@ will the model provide insights on these principles?
 does the model use new/ pre-developed theory for agent traits from which the system dynamics emerge?
 
 
+Antimicrobial resistance (AMR) is the capacity of mocrobes to resist the effects of some substance
+to which they were initially sensitive, and to which may have been initially effective in suppressing it,
+as in the case of some microbial infection. A specific example of such which is simulated in this model
+is antibiotic resistance, though all classes of microbes may develop resistance (ie. fungi develop resistance
+to antifungal substances, viruses to antiviral substances, etc.)
 
+This resistance is essentially an expression of the phenomenon of natural selection,
+wherein agentswith behavior conducive to survival thrive, while those without such behavior eventually die out.
+Thus while those sensitive to antimicrobial agents die out (behavior inconducive to survival),
+microbes with antiimicrobial resistance eventually thrive (behavior conducive to survival.)
 
-The model is based off existing studies on how the bacteria population can gain a resistance
-to antibiotics. This model is meant to provide insight on how bacteria gain a resistance and
-how they respond to different applications of antibiotics
+The model is based off the Kishony Microbial Evolution and Growth Arena (MEGA) plate model,
+which simulated how a microbial population (in this case, bacteria population) to antibiotics.
+This model is meant to provide insight on how bacteria gain a resistance
+and how they respond to different applications of antibiotics

@@ -1,1 +1,23 @@
-Who did what and in what order?  Use pseudo-code.
+/* The setup; this creates the turtles and matches randomly. The resulting
+   graph is dense at first, and the links denote potential matches. */
+
+to setup
+  clear-all
+  set-default-shape turtles "person"
+  create-users
+  reset-ticks
+end
+
+/* The loop / go
+   First gender preference conflicts are removed. Then the people "swipe" on
+   random. Finally, matched and unmatched people are marked with happy and
+   sad faces respectively. */
+to go
+  remove-gender-conflicts
+  while [any? turtles with [count my-links > 1]] [
+    swipe
+    tick
+  ]
+  find-happy
+  find-sad
+end

@@ -1,0 +1,21 @@
+Basic principles
+- The model uses the concepts of social networks and manipulating edges in the
+graph. The concept of using strategies and some factor of randomness is also 
+explored.
+- The model will provide insights on how many people end up being matched.
+
+Objective
+- The objective of each person is to be matched to a person with whom they share
+a common liking or interest with.
+
+Sensing
+- In the future, an extension involving taking into account the person's
+physical distance to his/her match may be implemented.
+
+Interaction
+- Each person will either swipe right (accept the match) or swipe left (reject
+the match). This will affect who gets to be matched with whom at the end.
+
+Stochasticity
+- The generation of the population and initial matches is mostly random. A
+strategy involving randomness can also be included.

@@ -1,2 +1,4 @@
 This model aims to dynamically simulate the spatiotemporal microbal evolution of antibiotic landscapes, 
-based on the experiments on antibiotic landscapes done by the Kishony Lab of the Harvard Medical School.
+based on Evolution and Growth Arena (MEGA) plate model developed by the Kishony Lab of the Harvard Medical School.
+
+See 'Spatiotemporal microbial evolution on antibiotic landscapes' (Baym, et al. 2016)

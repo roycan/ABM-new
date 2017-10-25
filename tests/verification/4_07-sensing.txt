@@ -1,1 +1,2 @@
 what model state variables are informing agents' decisions?
+  environmental factors inputted by users

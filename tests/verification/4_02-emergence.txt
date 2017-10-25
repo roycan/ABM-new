@@ -1,1 +1,2 @@
 what results are expected to vary in complex or unpredictable ways?
+  The value of stocks of each company

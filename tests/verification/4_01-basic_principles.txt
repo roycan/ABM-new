@@ -1,3 +1,13 @@
 what are the basic principles of the model?
+
+  Based on the data from real companies, we can make a fictional company and let its stocks behave in this way over time. 
+
+  We can get variables, observe their relationship with the stock price of a company over time. And from this data, our model tries
+  to predict the behavior of the stock price over time as the user changes the values of the variables.
+
+
 will the model provide insights on these principles?
+
+
 does the model use new/ pre-developed theory for agent traits from which the system dynamics emerge?
+  No

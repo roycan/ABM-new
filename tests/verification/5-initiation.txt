@@ -1,1 +1,4 @@
 initial states? which are constant, which are varying?
+  There will be 3 companies
+  Each company will have random values
+

@@ -1,3 +1,11 @@
 What are the entities, what their state variables (attributes) ?
+- Dividend yield
+- Interest rates
+- Trading volume
+	Indicates the number of shares or contracts traded in the market
+	Tells if a particular price trend is supported by market players
+- Put-call ratio
 
 What are the scales used (ie temporal resolution, spatial resolution and bounds)?
+- Dividend Yield and Interest rates are in percent
+	1 bar = 1 %

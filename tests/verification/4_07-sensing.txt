@@ -1,1 +1,5 @@
 what model state variables are informing agents' decisions?
+
+The individual agent does not sense anything. However, as a whole the bacteria population
+sense the antibiotic and its levels. The population respond and adapt to gain a resistance
+against the antibiotic in order to survive.

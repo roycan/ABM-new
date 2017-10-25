@@ -1,1 +1,11 @@
 Who did what and in what order?  Use pseudo-code.
+
+Time is modeled discretely 
+bacteria moves to an empty adjacent tile, checks if it replicates and checks if it dies to the antibiotic it is standing over is toxic to it
+
+only the bacteria is moving here.
+
+at each move the lifespan is decreased by 1.
+when it replicates, there is a chance for a mutation which can change the resistance
+when bacteria are beside each other then can also share resistance genes
+

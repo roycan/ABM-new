@@ -1,1 +1,12 @@
 what data are collected for testing and analysis?
+
+The main data to be collected is how long it takes for the bacteria to 
+develop a resistance to a certain antibiotic. The patches are divided into
+several sections, each with different amounts of a certain antibiotic to mimic
+the experiment "The Evolution of Bacteria on a “Mega-Plate” Petri Dish (Kishony Lab)".
+
+It is also important to observe how the bacteria population will react to different methods
+of giving antibiotics such as repeated dosages of varying strength, inconsistent dosage timing
+cycling different antibiotics or just using a certain kind. This is to see what methods are
+effective or harmful when it comes to the use of antibiotics as certain methods are done to
+minimize the effects of resistance development.

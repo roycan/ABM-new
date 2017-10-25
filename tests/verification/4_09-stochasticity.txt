@@ -1,1 +1,14 @@
 what processes are modelled as random?
+
+The initial positioning of bacteria is random. Along with this, 
+the reproduction happens randomly, with the chance being
+set by a slider. This is to abstract and simulate the growth
+of bacteria. The growth rate is still exponential similar to
+observed bacterial growth in real life experiments.
+
+Another important process with random factors is the mutation.
+Whenever a child is born, there is a chance for a mutation
+to simulate how mutations work whenever bacteria divide.
+The mutation can be a resistance to any of the antibiotics in order
+to model how the bacteria population gain a resistance 
+to antibiotics.

@@ -1,1 +1,2 @@
 what data are collected for testing and analysis?
+  real stock market trends

@@ -1,1 +1,2 @@
 what processes are modelled as random?
+  initial value of company's stocks

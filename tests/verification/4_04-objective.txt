@@ -1,1 +1,2 @@
 if entities adapt, to what objective/ goal? 
+  Entities will simply adapt to changes in the environment demonstrating the increase/decrease in its stock value

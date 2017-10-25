@@ -1,1 +1,2 @@
 what, if any, rules vary decision making for agents in response to changes in themselves, others or the environment?
+The more humans already helping the human, the less likely they will help.

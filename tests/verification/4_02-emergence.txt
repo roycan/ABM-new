@@ -1,1 +1,2 @@
 what results are expected to vary in complex or unpredictable ways?
+The number of humans who'll be helping and the patterns of humans would vary.

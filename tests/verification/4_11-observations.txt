@@ -1,1 +1,2 @@
 what data are collected for testing and analysis?
+Number of humans who helped and patterns in the actual simulation.

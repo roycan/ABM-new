@@ -1,3 +1,9 @@
 what are the basic principles of the model?
 will the model provide insights on these principles?
 does the model use new/ pre-developed theory for agent traits from which the system dynamics emerge?
+
+The basic principle of this model is natural selection.
+
+The model is based off existing studies on how the bacteria population can gain a resistance
+to antibiotics. This model is meant to provide insight on how bacteria gain a resistance and
+how they respond to different applications of antibiotics

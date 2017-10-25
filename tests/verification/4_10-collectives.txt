@@ -1,1 +1,6 @@
-any agent groupings?
+AGENT GROUPINGS
+
+1. Egg cells
+			- Each egg cell comes from a breed of agent called egg cells
+2. Sperm cells
+			- Each sperm cell comes from a breed of agent called sperm cells

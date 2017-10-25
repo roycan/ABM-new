@@ -1,1 +1,3 @@
-what model state variables are informing agents' decisions?
+What model state variables are informing agents' decisions?
+
+The movement of the sperm cells depend on the location of the egg cell/s. The location of the egg cell/s would normally give out a higher temperature to its surroundings.The idea that is used in the model model is that the sperm agent would move to its neighboring patch with the highest temperature.

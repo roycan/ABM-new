@@ -1,0 +1,1 @@
+This model is a prototype of the Tinder usage model. This model will simply generate a network of people (each link representing a potential match), and each person will randomly swipe left (reject) or swipe right (accept) the other. If both persons accept, the link stays; otherwise, the link is broken.

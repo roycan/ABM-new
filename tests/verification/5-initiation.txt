@@ -1,1 +1,2 @@
-initial states? which are constant, which are varying?
+At t=0, the population is initialized, with varying numbers of each gender and
+gender preference, and a dense graph indicating possible matches is created.

@@ -1,3 +1,12 @@
-What are the entities, what their state variables (attributes) ?
+Person: base unit of simulation
+person [
+	sex: A person's own sex (male or female)
+	sex-pref: A person's preferred gender (male, female or both)
+	strategy: A variable determining the strategy used by the person.
+	attractiveness: A normally distributed variable. People will be looking for
+		others of similar attractiveness.
+]
 
-What are the scales used (ie temporal resolution, spatial resolution and bounds)?
+Link: describes people who are still matched
+link [
+]

@@ -1,0 +1,3 @@
+regression analysis can be used 
+run behavior space covering sevaral values per input
+check regression analysis for some paramater that the model is unexpectedly sensite to.

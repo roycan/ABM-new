@@ -1,0 +1,2 @@
+The metric for this is variable stability. The coefficient of variance (cv) can be used. 
+cv = standard deviation/ mean

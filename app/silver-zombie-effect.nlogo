@@ -26,7 +26,15 @@ to setup
 end
 
 to go
+  ask nanoparticles [ explore fd 0.05 ]
+  ask bacteria [ explore fd 0.3 ]
   tick
+end
+
+to explore
+  rt random 40
+  lt random 40
+  if not can-move? 1 [ rt 180 ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW

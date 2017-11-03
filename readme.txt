@@ -11,7 +11,7 @@
 * Bacteria agents should be able to get big if successfully eaten silver ions (and has max size), suggestion health-based system like in a game. (might get complicated due to the needed health regeneration and game theory involved)
 * Three agent sets involved: bacteria, silver nanoparticles, and silver ions.
 * Colors:
-	a) Normal Bacteria -> Red
+	a) Normal Bacteria -> Pink (for E. Coli)
 	b) Zombie Bacteria -> Green
 	c) Silver Nanoparticles -> Blue
 	d) Silver Ions -> White

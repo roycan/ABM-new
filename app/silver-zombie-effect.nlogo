@@ -1,13 +1,14 @@
-breed [ nanoparticles nanoparticle]
 breed [ bacteria bacterium ]
+breed [ nanoparticles nanoparticle]
+breed [ oxygenparticles oxygenparticle]
 breed [ ions ion]
-
-
 
 to setup
   clear-all
   create-bacteria num-of-bacteria
   create-nanoparticles num-of-nanoparticles
+  create-oxygenparticles oxygen-level
+  ;;create-ions 100
 
   ask bacteria [
     setxy random-xcor random-ycor
@@ -22,12 +23,33 @@ to setup
     set size 2
     set shape "circle"
   ]
+
+  ask oxygenparticles[
+    setxy random-xcor random-ycor
+    set color white
+    set size 0.8
+    set shape "circle 2"
+  ]
+  ;ask ions [
+  ;  setxy random-xcor random-ycor
+  ;  set color white
+  ;  set size 0.8
+  ;  set shape "molecule water"
+  ;]
   reset-ticks
 end
 
 to go
-  ask nanoparticles [ explore fd 0.05 ]
+
   ask bacteria [ explore fd 0.3 ]
+  ask nanoparticles [
+    if any? other oxygenparticles-on neighbors[
+      set color white
+      ask oxygenparticles-on neighbors[ die ]
+    ]
+    explore fd 0.05
+  ]
+  ask oxygenparticles [ explore fd 0.3 ]
   tick
 end
 
@@ -106,8 +128,8 @@ SLIDER
 num-of-bacteria
 num-of-bacteria
 0
-100
-50.0
+30
+10.0
 1
 1
 NIL
@@ -122,7 +144,7 @@ num-of-nanoparticles
 num-of-nanoparticles
 0
 10
-4.0
+3.0
 1
 1
 NIL
@@ -136,8 +158,8 @@ SLIDER
 oxygen-level
 oxygen-level
 0
-100
-50.0
+10
+7.0
 1
 1
 NIL
@@ -368,6 +390,16 @@ line half
 true
 0
 Line -7500403 true 150 0 150 150
+
+molecule water
+true
+0
+Circle -1 true false 183 63 84
+Circle -16777216 false false 183 63 84
+Circle -7500403 true true 75 75 150
+Circle -16777216 false false 75 75 150
+Circle -1 true false 33 63 84
+Circle -16777216 false false 33 63 84
 
 pentagon
 false

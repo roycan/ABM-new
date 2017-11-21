@@ -1,55 +1,80 @@
-breed [ bacteria bacterium ]
-breed [ nanoparticles nanoparticle]
-breed [ oxygenparticles oxygenparticle]
-breed [ ions ion]
+breed [ bacteria-units bacteria-unit ]
+breed [ silver-nanoparticles silver-nanoparticle ]
+breed [ silver-ions silver-ion ]
+
+breed [ sugar-molecules sugar-molecule]
+
 
 to setup
   clear-all
-  create-bacteria num-of-bacteria
-  create-nanoparticles num-of-nanoparticles
-  create-oxygenparticles oxygen-level
-  ;;create-ions 100
+  create-bacteria-units num-of-bacteria-units
+  create-silver-nanoparticles num-of-silver-nanoparticles
+  create-sugar-molecules num-of-sugar-molecules
+  ;; create-silver-ions 100
 
-  ask bacteria [
+  ask bacteria-units [
     setxy random-xcor random-ycor
     set color pink
-    set size 1
+    set size 3
     set shape "rod"
   ]
 
-  ask nanoparticles [
+  ask silver-nanoparticles [
     setxy random-xcor random-ycor
     set color blue
-    set size 2
+    set size 1
     set shape "circle"
   ]
 
-  ask oxygenparticles[
+  ask sugar-molecules[
     setxy random-xcor random-ycor
     set color white
     set size 0.8
     set shape "circle 2"
   ]
-  ;ask ions [
-  ;  setxy random-xcor random-ycor
-  ;  set color white
-  ;  set size 0.8
-  ;  set shape "molecule water"
-  ;]
+
   reset-ticks
 end
 
 to go
 
-  ask bacteria [ explore fd 0.3 ]
-  ask nanoparticles [
-    if any? other oxygenparticles-on neighbors[
-      set color white
-      ask oxygenparticles-on neighbors[ die ]
+  ask bacteria-units [ explore fd 0.3 ]
+  ask silver-nanoparticles [
+    if any? other sugar-molecules-on neighbors[
+
+      if color = blue [
+        ask sugar-molecules-on neighbors[ die ]
+
+
+        hatch-silver-ions 25 [
+        ;; setxy 5 1
+        set color white
+        set size 0.3
+        set shape "circle"
+
+
+
+        ]
+
+
+      ]
+
+
+   die
+
+
     ]
-    explore fd 0.05
+    if color = blue [ explore fd 0.3 ]
   ]
-  ask oxygenparticles [ explore fd 0.3 ]
+
+  ask silver-ions [
+    explore
+    fd 0.3
+  ]
+
+
+  ask sugar-molecules [ explore fd 0.1 ]
+
   tick
 end
 
@@ -60,10 +85,10 @@ to explore
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-210
+262
 10
-647
-448
+803
+552
 -1
 -1
 13.0
@@ -76,10 +101,10 @@ GRAPHICS-WINDOW
 0
 0
 1
--16
-16
--16
-16
+-20
+20
+-20
+20
 1
 1
 1
@@ -87,10 +112,10 @@ ticks
 30.0
 
 BUTTON
-17
-154
-83
-187
+16
+146
+82
+179
 setup
 setup
 NIL
@@ -104,10 +129,10 @@ NIL
 1
 
 BUTTON
-96
-154
-159
-187
+95
+146
+158
+179
 go
 go
 T
@@ -121,49 +146,69 @@ NIL
 1
 
 SLIDER
-7
-58
-179
-91
-num-of-bacteria
-num-of-bacteria
+6
+50
+203
+83
+num-of-bacteria-units
+num-of-bacteria-units
 0
 30
-10.0
+12.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-7
-18
-199
-51
-num-of-nanoparticles
-num-of-nanoparticles
+6
+10
+230
+43
+num-of-silver-nanoparticles
+num-of-silver-nanoparticles
 0
 10
-3.0
+5.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-7
-97
-179
-130
-oxygen-level
-oxygen-level
+6
+89
+210
+122
+num-of-sugar-molecules
+num-of-sugar-molecules
 0
 10
-7.0
+8.0
 1
 1
 NIL
 HORIZONTAL
+
+TEXTBOX
+5
+200
+262
+341
+Color Legend\n\n* Normal Bacteria - Pink (for P.aeruginosa)\n\n* Zombie Bacteria - Green\n\n* Silver Nanoparticles - Blue\n\n* Silver Ions - White
+12
+0.0
+1
+
+TEXTBOX
+10
+366
+262
+576
+Size Legend\n\nSizes were scaled according to model visibility.\n\n* P. aeruginosa - about 5.0x1.0 µm\n\n* Silver Nanoparticle - 10 nm\n\n* Silver Cations - 81 - 142 Radius / pm (very small)
+12
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?

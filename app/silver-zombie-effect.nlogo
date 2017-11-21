@@ -42,7 +42,6 @@ to setup
 end
 
 to go
-
   ask bacteria-units [
     ifelse health-points < 0
     [
@@ -55,7 +54,10 @@ to go
 
     if any? other silver-ions-on neighbors[
       set health-points (health-points - 1)
-      ask silver-ions-on neighbors[ die ]
+
+      if color = pink [
+        ask silver-ions-on neighbors[ die ]
+      ]
     ]
 
   ]
@@ -82,6 +84,7 @@ to go
 
   ask sugar-molecules [ explore fd 0.1 ]
 
+  if ( count silver-nanoparticles <= 0 ) and ( count silver-ions <= 0 ) [ stop ]
   tick
 end
 
@@ -181,8 +184,8 @@ SLIDER
 num-of-silver-nanoparticles
 num-of-silver-nanoparticles
 0
-10
-5.0
+25
+18.0
 1
 1
 NIL
@@ -196,32 +199,68 @@ SLIDER
 num-of-sugar-molecules
 num-of-sugar-molecules
 0
-10
-10.0
+25
+25.0
 1
 1
 NIL
 HORIZONTAL
 
 TEXTBOX
-5
-200
-262
-341
+816
+12
+1073
+153
 Color Legend\n\n* Normal Bacteria - Pink (for P.aeruginosa)\n\n* Zombie Bacteria - Green\n\n* Silver Nanoparticles - Blue\n\n* Silver Ions - White
 12
 0.0
 1
 
 TEXTBOX
-10
-366
-262
-576
+821
+178
+1073
+388
 Size Legend\n\nSizes were scaled according to model visibility.\n\n* P. aeruginosa - about 5.0x1.0 µm\n\n* Silver Nanoparticle - 10 nm\n\n* Silver Cations - 81 - 142 Radius / pm (very small)
 12
 0.0
 1
+
+PLOT
+11
+370
+211
+520
+Silver Ions Count
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -2674135 true "" "plotxy ticks count silver-ions"
+
+PLOT
+11
+198
+211
+348
+Alive Bacteria-units Count
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -2674135 true "" "plotxy ticks count bacteria-units with [color = pink]"
 
 @#$#@#$#@
 ## WHAT IS IT?

@@ -4,19 +4,24 @@ breed [ silver-ions silver-ion ]
 
 breed [ sugar-molecules sugar-molecule]
 
+bacteria-units-own [
+  health-points
+]
+
 
 to setup
   clear-all
   create-bacteria-units num-of-bacteria-units
   create-silver-nanoparticles num-of-silver-nanoparticles
   create-sugar-molecules num-of-sugar-molecules
-  ;; create-silver-ions 100
 
   ask bacteria-units [
     setxy random-xcor random-ycor
     set color pink
     set size 3
     set shape "rod"
+
+    set health-points 10
   ]
 
   ask silver-nanoparticles [
@@ -38,40 +43,42 @@ end
 
 to go
 
-  ask bacteria-units [ explore fd 0.3 ]
+  ask bacteria-units [
+    ifelse health-points < 0
+    [
+      explore-zombie fd 0.05
+      set color green
+    ]
+    [
+      explore fd 0.3
+    ]
+
+    if any? other silver-ions-on neighbors[
+      set health-points (health-points - 1)
+      ask silver-ions-on neighbors[ die ]
+    ]
+
+  ]
+
   ask silver-nanoparticles [
     if any? other sugar-molecules-on neighbors[
 
       if color = blue [
         ask sugar-molecules-on neighbors[ die ]
 
-
         hatch-silver-ions 25 [
         ;; setxy 5 1
         set color white
         set size 0.3
         set shape "circle"
-
-
-
         ]
-
-
       ]
-
-
-   die
-
-
+      die
     ]
-    if color = blue [ explore fd 0.3 ]
+    explore fd 0.3
   ]
 
-  ask silver-ions [
-    explore
-    fd 0.3
-  ]
-
+  ask silver-ions [ explore fd 0.3 ]
 
   ask sugar-molecules [ explore fd 0.1 ]
 
@@ -81,6 +88,12 @@ end
 to explore
   rt random 40
   lt random 40
+  if not can-move? 1 [ rt 180 ]
+end
+
+to explore-zombie
+  rt random 10
+  lt random 10
   if not can-move? 1 [ rt 180 ]
 end
 @#$#@#$#@
@@ -184,7 +197,7 @@ num-of-sugar-molecules
 num-of-sugar-molecules
 0
 10
-8.0
+10.0
 1
 1
 NIL

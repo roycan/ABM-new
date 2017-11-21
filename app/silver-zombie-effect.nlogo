@@ -8,6 +8,9 @@ bacteria-units-own [
   health-points
 ]
 
+silver-ions-own [
+  health-points
+]
 
 to setup
   clear-all
@@ -29,6 +32,7 @@ to setup
     set color blue
     set size 1
     set shape "circle"
+
   ]
 
   ask sugar-molecules[
@@ -69,10 +73,10 @@ to go
         ask sugar-molecules-on neighbors[ die ]
 
         hatch-silver-ions 25 [
-        ;; setxy 5 1
-        set color white
-        set size 0.3
-        set shape "circle"
+          set color white
+          set size 0.3
+          set shape "circle"
+          set health-points 200
         ]
       ]
       die
@@ -80,7 +84,12 @@ to go
     explore fd 0.3
   ]
 
-  ask silver-ions [ explore fd 0.3 ]
+  ask silver-ions [
+    explore
+    fd 0.3
+    set health-points (health-points - 1)
+    if health-points = 0 [ die ]
+  ]
 
   ask sugar-molecules [ explore fd 0.1 ]
 
@@ -217,10 +226,10 @@ Color Legend\n\n* Normal Bacteria - Pink (for P.aeruginosa)\n\n* Zombie Bacteria
 1
 
 TEXTBOX
-821
-178
-1073
-388
+819
+205
+1071
+415
 Size Legend\n\nSizes were scaled according to model visibility.\n\n* P. aeruginosa - about 5.0x1.0 µm\n\n* Silver Nanoparticle - 10 nm\n\n* Silver Cations - 81 - 142 Radius / pm (very small)
 12
 0.0

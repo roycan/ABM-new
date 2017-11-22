@@ -6,6 +6,7 @@ breed [ sugar-molecules sugar-molecule]
 
 bacteria-units-own [
   health-points
+  release-ions-counter
 ]
 
 silver-ions-own [
@@ -25,6 +26,7 @@ to setup
     set shape "rod"
 
     set health-points 10
+    set release-ions-counter 0
   ]
 
   ask silver-nanoparticles [
@@ -49,7 +51,7 @@ to go
   ask bacteria-units [
     ifelse health-points < 0
     [
-      explore-zombie fd 0.05
+      explore-zombie fd 0.01
       set color green
     ]
     [
@@ -62,7 +64,23 @@ to go
       if color = pink [
         ask silver-ions-on neighbors[ die ]
       ]
+
     ]
+      if color = green and ticks mod 10 = 0 [
+        set release-ions-counter ( release-ions-counter + 1 )
+
+        if release-ions-counter < 25 [
+          hatch-silver-ions 1 [
+            set color white
+            set size 0.3
+            set shape "circle"
+            set health-points 200
+          ]
+          set color red
+        ]
+
+      ]
+
 
   ]
 
@@ -86,14 +104,14 @@ to go
 
   ask silver-ions [
     explore
-    fd 0.3
+    fd 0.2
     set health-points (health-points - 1)
     if health-points = 0 [ die ]
   ]
 
   ask sugar-molecules [ explore fd 0.1 ]
 
-  if ( count silver-nanoparticles <= 0 ) and ( count silver-ions <= 0 ) [ stop ]
+  if (( count silver-nanoparticles <= 0 or count sugar-molecules <= 0  ) and ( count silver-ions <= 0 )) or count bacteria-units with [ color = pink ] = 0 [ stop ]
   tick
 end
 
@@ -104,8 +122,8 @@ to explore
 end
 
 to explore-zombie
-  rt random 10
-  lt random 10
+  rt random 5
+  lt random 5
   if not can-move? 1 [ rt 180 ]
 end
 @#$#@#$#@
@@ -179,7 +197,7 @@ num-of-bacteria-units
 num-of-bacteria-units
 0
 30
-12.0
+10.0
 1
 1
 NIL
@@ -194,7 +212,7 @@ num-of-silver-nanoparticles
 num-of-silver-nanoparticles
 0
 25
-18.0
+15.0
 1
 1
 NIL
@@ -209,7 +227,7 @@ num-of-sugar-molecules
 num-of-sugar-molecules
 0
 25
-25.0
+10.0
 1
 1
 NIL
@@ -218,9 +236,9 @@ HORIZONTAL
 TEXTBOX
 816
 12
-1073
-153
-Color Legend\n\n* Normal Bacteria - Pink (for P.aeruginosa)\n\n* Zombie Bacteria - Green\n\n* Silver Nanoparticles - Blue\n\n* Silver Ions - White
+1180
+162
+Color Legend\n\n* Normal Bacteria - Pink (for P.aeruginosa)\n\n* Zombie Bacteria - Green (Blinks red if releasing a silver ion)\n\n* Silver Nanoparticles - Blue\n\n* Silver Ions - White
 12
 0.0
 1
@@ -240,7 +258,7 @@ PLOT
 370
 211
 520
-Silver Ions Count
+Alive Silver Ions Count
 NIL
 NIL
 0.0

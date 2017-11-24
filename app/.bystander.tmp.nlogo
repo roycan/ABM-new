@@ -20,10 +20,10 @@ to setup
 end
 
 to create-walls
-  let nums ( range -10 36 )
+  let nums ( range -5 36 )
   foreach  nums  [  x ->  ask patch x -7 [ set pcolor white] ]
 
-  let nums2 ( range 10 -36 -1 )
+  let nums2 ( range 5 -36  )
   foreach  nums2  [  x ->  ask patch x 7 [ set pcolor white] ]
 
 

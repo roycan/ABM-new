@@ -111,7 +111,8 @@ to go
 
   ask sugar-molecules [ explore fd 0.1 ]
 
-  if (( count silver-nanoparticles <= 0 or count sugar-molecules <= 0  ) and ( count silver-ions <= 0 )) or count bacteria-units with [ color = pink ] = 0 [ stop ]
+  if (( count silver-nanoparticles <= 0 or count sugar-molecules <= 0  ) and ( count silver-ions <= 0 )) or (count bacteria-units with [ color = pink ] = 0 and count bacteria-units with [ color = red ] = 0) [
+    stop ]
   tick
 end
 
@@ -197,7 +198,7 @@ num-of-bacteria-units
 num-of-bacteria-units
 0
 30
-10.0
+5.0
 1
 1
 NIL
@@ -212,7 +213,7 @@ num-of-silver-nanoparticles
 num-of-silver-nanoparticles
 0
 25
-15.0
+5.0
 1
 1
 NIL

@@ -1,1 +1,2 @@
 what data are collected for testing and analysis?
+The data that will be collected for testing and analysis is provided by our two real-time graphs for currently alive bacteria units and currently alive silver cations on-board. This serves essential to the usefulness of the model as tweaks and generalizations will reflect their respective changes here.

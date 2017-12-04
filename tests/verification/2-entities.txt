@@ -1,3 +1,6 @@
-What are the entities, what their state variables (attributes) ?
-
+What are the entities, what are their state variables (attributes) ?
+Sperm cells
+Egg cell
+Patches containing individual temperatures represented using floats.
 What are the scales used (ie temporal resolution, spatial resolution and bounds)?
+		- Temperature diffusion

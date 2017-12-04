@@ -1,0 +1,1 @@
+The purpose of the project is for us to show how a sperm cell reaches an egg cell by following a mechanic research shows to be true. What it does is bunch of sperm cells follow a path by finding where a patch is hotter and eventually reaching the egg where it is hottest and fertilizing the egg after successfully searching for it.

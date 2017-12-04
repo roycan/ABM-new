@@ -1,1 +1,2 @@
 are agent behavior influenced by expectations on future model states? if yes, how?
+Yes, because they follow which temperature is the highest among their neighbors and are expected to reach the egg cell at the end.

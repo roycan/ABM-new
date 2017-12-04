@@ -1,1 +1,3 @@
 what results are expected to vary in complex or unpredictable ways?
+The temperature of each patches are stochastic to achieve the realistic sense of temperature diffusion
+The sperm cells wiggle toward the patch with the higher temperature

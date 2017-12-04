@@ -1,1 +1,9 @@
 Who did what and in what order?  Use pseudo-code.
+Sperm cells spawn in designated spot
+Egg cell spawns in designated spot
+The spot where an egg cell is spawned is planted with a high temperature
+Diffuse the heat either through stochastic or deterministic diffusion
+Color patches accordingly
+If go is pressed, sperm cells wiggle towards patches with higher temperature.
+If a sperm cell touches an egg cell, die.
+If all sperm cells die, stop the program.

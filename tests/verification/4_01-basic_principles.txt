@@ -1,3 +1,6 @@
 what are the basic principles of the model?
+Temperature, Temperature Diffusion, Sperm cell search 
 will the model provide insights on these principles?
+Yes
 does the model use new/ pre-developed theory for agent traits from which the system dynamics emerge?
+Yes

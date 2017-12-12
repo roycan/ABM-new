@@ -1,3 +1,9 @@
 What are the entities, what their state variables (attributes) ?
+  fake news spreader
+    - popularity
+  neutral
+    bias
+  believer
+  strongholds
 
 What are the scales used (ie temporal resolution, spatial resolution and bounds)?

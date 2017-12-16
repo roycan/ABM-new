@@ -1,7 +1,8 @@
 what are the basic principles of the model?
-Each human will have less probability of helping a human in need of help if there are already humans helping the human in need of help.
+The more people visible, the less bystanders will help.
 
 will the model provide insights on these principles?
 Yes
 
 does the model use new/ pre-developed theory for agent traits from which the system dynamics emerge?
+Yes

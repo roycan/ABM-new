@@ -1,0 +1,1 @@
+The humans will help the other humans in need by changing there status to 'OK'. The time it takes to help a human will vary.

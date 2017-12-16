@@ -1,1 +1,4 @@
 initial states? which are constant, which are varying?
+The radius of vision would start at 5.
+The sensitivity to helping would vary.
+The starting status of every human is 'OK'.

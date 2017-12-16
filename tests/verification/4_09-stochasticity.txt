@@ -1,2 +1,2 @@
 what processes are modelled as random?
-Sensitivity to helping others.
+The walk and the amount of bystanders visible at any given time.

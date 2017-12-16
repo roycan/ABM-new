@@ -1,4 +1,4 @@
 What are the entities, what their state variables (attributes) ?
-Humans( turtles) which has the radius of vision, sensitivity to helping and status.
+Humans which has the radius of vision and opportunity-score.
 
 What are the scales used (ie temporal resolution, spatial resolution and bounds)?

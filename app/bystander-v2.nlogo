@@ -1,94 +1,103 @@
 turtles-own [
   flockmates         ;; agentset of nearby turtles
   nearest-neighbor   ;; closest one of our flockmates
+  speed
 ]
+
+breed [victims victim]
+breed [bystanders bystander]
+breed [helpers helper]
 
 to setup
   clear-all
+
+  set-default-shape victims "person"
+  set-default-shape helpers "person"
+  set-default-shape bystanders "person"
+
   create-walls
-  create-turtles population
-    [ set color yellow - 2 + random 7  ;; random shades look nice
-      set size 1.5  ;; easier to see
-      setxy random-xcor random-ycor
-      set flockmates no-turtles
-      set shape "person" ]
-  let injured-people n-of 10 turtles
-  ask injured-people [
+
+ ;; create-bystanders num-bystanders [
+ ;   set size 1.5
+ ;   setxy random-xcor random-ycor
+ ;   set color grey
+ ;   set speed 1
+ ;; ]
+
+  create-victims 1 [
+    set size 1.5
     set color red
+    setxy 10 0
   ]
+
+  create-helpers num-bystanders [
+    set size 1.5
+    set color white
+    setxy random-xcor random-ycor
+    set speed 1
+  ]
+
   reset-ticks
 end
 
 to create-walls
-  let nums ( range -5 36 )
-  foreach  nums  [  x ->  ask patch x -7 [ set pcolor white] ]
+  let nums ( range -10 36 )
+  foreach  nums  [  x ->  ask patch x -11 [ set pcolor white] ]
 
-  let nums2 ( range 5 -36  )
-  foreach  nums2  [  x ->  ask patch x 7 [ set pcolor white] ]
-
-
-
+  let nums2 ( range 10 -36 -1 )
+  foreach  nums2  [  x ->  ask patch x 11 [ set pcolor white] ]
 end
+
 to go
 
   ;; the following line is used to make the turtles
   ;; animate more smoothly.
-  let not-injured turtles with [ color != red and color != green ]
-  repeat 5 [ ask not-injured [ fd 0.2 ] display ]
-  ask not-injured [ find-flockmates ]
-  ask not-injured [
-    let injured flockmates with [color = red]
-    let probability 1 / (count flockmates + 1)
-    let rando random-float 1
-    if count injured  > 0 and ( rando < probability ) [
-      set color green
-      face one-of injured
-    ]
 
-  ]
   ;; for greater efficiency, at the expense of smooth
   ;; animation, substitute the following line instead:
-  ;;   ask turtles [ fd 1 ]
+
+  ask helpers [
+    avoid-walls
+    if color = white
+    [
+      if any? victims in-cone 3 180 [ perform ]
+    ]
+    rt (22.5 - random 45)
+    fd speed
+  ]
+
   tick
 end
 
+to perform
+  let visible-bystanders count helpers in-radius 5
+  ifelse (intention-score visible-bystanders * opportunity-score >= ( random-float 1)) [
+    set color green
+    set speed 0
+  ] [
+    set color yellow
+    set speed 1
+  ]
 
-
-
-to-report average-flockmate-heading  ;; turtle procedure
-  ;; We can't just average the heading variables here.
-  ;; For example, the average of 1 and 359 should be 0,
-  ;; not 180.  So we have to use trigonometry.
-  let x-component sum [dx] of flockmates
-  let y-component sum [dy] of flockmates
-  ifelse x-component = 0 and y-component = 0
-    [ report heading ]
-    [ report atan x-component y-component ]
+  stop
 end
 
-
-;;; HELPER PROCEDURES
-to find-flockmates  ;; turtle procedure
-  set flockmates other turtles in-radius vision
+to avoid-walls
+  ifelse patch-ahead 1 != nobody
+  [
+    if [pcolor] of patch-ahead 1 = white [set heading heading - (44 + random 134) ]
+  ]
+  [ set heading heading - (44 + random 134) ]
+end
+to-report intention-score [visible-bystanders]
+  let perceived-seriousness seriousness-score / (visible-bystanders * 0.5)
+  ifelse perceived-seriousness > emergency-treshold [
+    report perceived-seriousness
+  ] [
+    report perceived-seriousness / 2
+  ]
 end
 
-to turn-towards [new-heading max-turn]  ;; turtle procedure
-  turn-at-most (subtract-headings new-heading heading) max-turn
-end
-
-to turn-away [new-heading max-turn]  ;; turtle procedure
-  turn-at-most (subtract-headings heading new-heading) max-turn
-end
-
-;; turn right by "turn" degrees (or left if "turn" is negative),
-;; but never turn more than "max-turn" degrees
-to turn-at-most [turn max-turn]  ;; turtle procedure
-  ifelse abs turn > max-turn
-    [ ifelse turn > 0
-        [ rt max-turn ]
-        [ lt max-turn ] ]
-    [ rt turn ]
-end
 
 
 ; Copyright 1998 Uri Wilensky.
@@ -122,10 +131,10 @@ ticks
 30.0
 
 BUTTON
-39
-93
-116
-126
+9
+14
+86
+47
 NIL
 setup
 NIL
@@ -139,10 +148,10 @@ NIL
 1
 
 BUTTON
-122
-93
-203
-126
+92
+14
+173
+47
 NIL
 go
 T
@@ -157,178 +166,178 @@ NIL
 
 SLIDER
 9
-51
-232
-84
-population
-population
+71
+208
+104
+num-bystanders
+num-bystanders
 1.0
-1000.0
-150.0
+500
+500.0
 1.0
 1
 NIL
 HORIZONTAL
 
 SLIDER
-4
-217
-237
-250
-max-align-turn
-max-align-turn
-0.0
-20.0
-5.0
-0.25
-1
-degrees
-HORIZONTAL
-
-SLIDER
-4
-251
-237
-284
-max-cohere-turn
-max-cohere-turn
-0.0
-20.0
-3.0
-0.25
-1
-degrees
-HORIZONTAL
-
-SLIDER
-4
-285
-237
-318
-max-separate-turn
-max-separate-turn
-0.0
-20.0
-1.5
-0.25
-1
-degrees
-HORIZONTAL
-
-SLIDER
 9
-135
-232
-168
-vision
-vision
+163
+208
+196
+emergency-treshold
+emergency-treshold
+0
+1
+0.5
+0.1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+8
+274
+209
+307
+opportunity-score
+opportunity-score
+0
+1
+0.4
+0.1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+7
+376
+208
+409
+seriousness-score
+seriousness-score
+0
+1
+0.2
+0.1
+1
+NIL
+HORIZONTAL
+
+TEXTBOX
+11
+53
+161
+71
+Environment
+11
+0.0
+1
+
+TEXTBOX
+12
+210
+207
+266
+Helper\n(how much resources are available and how capable means a high opporunity score)
+11
+0.0
+1
+
+TEXTBOX
+9
+330
+221
+372
+Victim\n(more serious accidents means a higher seriousness score)
+11
+0.0
+1
+
+TEXTBOX
+12
+115
+214
+171
+(If the perceived seriousness is higher than the treshold, it is more likely for bystanders to help)
+11
+0.0
+1
+
+TEXTBOX
+12
+433
+218
+517
+Legend:\nRed - Victim\nBlue - Helper hasn't observed victim\nYellow - Helper did not help\nGreen - Helper helps the victim\n
+11
+0.0
+1
+
+PLOT
+786
+29
+1040
+179
+Helpers over time
+time
+number
 0.0
 10.0
-3.0
-0.5
-1
-patches
-HORIZONTAL
-
-SLIDER
-9
-169
-232
-202
-minimum-separation
-minimum-separation
 0.0
-5.0
-1.0
-0.25
+10.0
+true
+true
+"" ""
+PENS
+"observed" 1.0 0 -1184463 true "" "plot count helpers with [color = yellow]"
+"helped" 1.0 0 -10899396 true "" "plot count helpers with [color = green]"
+
+MONITOR
+786
+191
+899
+236
+number of helpers
+count helpers with [color = green]
+17
 1
-patches
-HORIZONTAL
+11
 
 @#$#@#$#@
 ## WHAT IS IT?
 
-This model is an attempt to mimic the flocking of birds.  (The resulting motion also resembles schools of fish.)  The flocks that appear in this model are not created or led in any way by special leader birds.  Rather, each bird is following exactly the same set of rules, from which flocks emerge.
+This model is an attempt to simulate the bystander effect over a simple separated space.  (The tendecy for bystanders to not help a victim when there are more people present.)
 
 ## HOW IT WORKS
 
-The birds follow three rules: "alignment", "separation", and "cohesion".
-
-"Alignment" means that a bird tends to turn so that it is moving in the same direction that nearby birds are moving.
-
-"Separation" means that a bird will turn to avoid another bird which gets too close.
-
-"Cohesion" means that a bird will move towards other nearby birds (unless another bird is too close).
-
-When two birds are too close, the "separation" rule overrides the other two, which are deactivated until the minimum separation is achieved.
-
-The three rules affect only the bird's heading.  Each bird always moves forward at the same constant speed.
+The helping behavior of the bystanders are affected by two major factors - their intent and opportunity to help. Intent is influenced by diffusion of responsibilty. Bystanders think that since there are other people present, they are less responsible to help the victim. This responsibility is affected by the seriousness of the accident. The opportunity to help of the helper is affected by their capacity and the availability of resources. All of these factors help decide whether a bystander will help the victim or not.
 
 ## HOW TO USE IT
 
-First, determine the number of birds you want in the simulation and set the POPULATION slider to that value.  Press SETUP to create the birds, and press GO to have them start flying around.
-
-The default settings for the sliders will produce reasonably good flocking behavior.  However, you can play with them to get variations:
-
-Three TURN-ANGLE sliders control the maximum angle a bird can turn as a result of each rule.
-
-VISION is the distance that each bird can see 360 degrees around it.
+First, adjust NUM-BYSTANDERS to add more people in the model. Second, adjust the EMERGENCY-TRESHOLD to indicate the treshold where helpers would think that an accident is an emergency. Then, adjust SERIOUSNESS-SCORE to indicate the seriousness of the accident. Lastly, adjust the OPPORTUNITY-SCORE to indicate the capacity of helpers and availability of resources.
 
 ## THINGS TO NOTICE
 
-Central to the model is the observation that flocks form without a leader.
-
-There are no random numbers used in this model, except to position the birds initially.  The fluid, lifelike behavior of the birds is produced entirely by deterministic rules.
-
-Also, notice that each flock is dynamic.  A flock, once together, is not guaranteed to keep all of its members.  Why do you think this is?
-
-After running the model for a while, all of the birds have approximately the same heading.  Why?
-
-Sometimes a bird breaks away from its flock.  How does this happen?  You may need to slow down the model or run it step by step in order to observe this phenomenon.
-
-## THINGS TO TRY
-
-Play with the sliders to see if you can get tighter flocks, looser flocks, fewer flocks, more flocks, more or less splitting and joining of flocks, more or less rearranging of birds within flocks, etc.
-
-You can turn off a rule entirely by setting that rule's angle slider to zero.  Is one rule by itself enough to produce at least some flocking?  What about two rules?  What's missing from the resulting behavior when you leave out each rule?
-
-Will running the model for a long time produce a static flock?  Or will the birds never settle down to an unchanging formation?  Remember, there are no random numbers used in this model.
+While people still help the victim even with a lower seriousness score, it is noticeably fewer.
 
 ## EXTENDING THE MODEL
 
-Currently the birds can "see" all around them.  What happens if birds can only see in front of them?  The `in-cone` primitive can be used for this.
+- Include gender of victim or helper
+- Include rushing bystanders
 
-Is there some way to get V-shaped flocks, like migrating geese?
-
-What happens if you put walls around the edges of the world that the birds can't fly into?
-
-Can you get the birds to fly around obstacles in the middle of the world?
-
-What would happen if you gave the birds different velocities?  For example, you could make birds that are not near other birds fly faster to catch up to the flock.  Or, you could simulate the diminished air resistance that birds experience when flying together by making them fly faster when in a group.
-
-Are there other interesting ways you can make the birds different from each other?  There could be random variation in the population, or you could have distinct "species" of bird.
+There are many other factors involving helping behavior but know that more complex models may be less useful.
 
 ## NETLOGO FEATURES
 
-Notice the need for the `subtract-headings` primitive and special procedure for averaging groups of headings.  Just subtracting the numbers, or averaging the numbers, doesn't give you the results you'd expect, because of the discontinuity where headings wrap back to 0 once they reach 360.
 
 ## RELATED MODELS
 
-* Moths
-* Flocking Vee Formation
-* Flocking - Alternative Visualizations
-
 ## CREDITS AND REFERENCES
-
-This model is inspired by the Boids simulation invented by Craig Reynolds.  The algorithm we use here is roughly similar to the original Boids algorithm, but it is not the same.  The exact details of the algorithm tend not to matter very much -- as long as you have alignment, separation, and cohesion, you will usually get flocking behavior resembling that produced by Reynolds' original model.  Information on Boids is available at http://www.red3d.com/cwr/boids/.
 
 ## HOW TO CITE
 
 If you mention this model or the NetLogo software in a publication, we ask that you include the citations below.
-
-For the model itself:
-
-* Wilensky, U. (1998).  NetLogo Flocking model.  http://ccl.northwestern.edu/netlogo/models/Flocking.  Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
 
 Please cite the NetLogo software as:
 
@@ -336,7 +345,7 @@ Please cite the NetLogo software as:
 
 ## COPYRIGHT AND LICENSE
 
-Copyright 1998 Uri Wilensky.
+Copyright 2017 Velasco, De Leon.
 
 ![CC BY-NC-SA 3.0](http://ccl.northwestern.edu/images/creativecommons/byncsa.png)
 
